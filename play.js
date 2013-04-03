@@ -1,18 +1,18 @@
 var play = function(){
-  console.log('Velkommen til konsollet. Skriv play.spin() og se hva som skjer! Skriv play.help() for hjelp og play.about() for bakgrunnsinfo ');
+    console.log('Velkommen til konsollet. Skriv play.spin() og se hva som skjer! Skriv play.help() for hjelp og play.about() for bakgrunnsinfo');
 };
 play.spin = function () {
     var rotated = false;
     return function() {
-    var rot = rotated ? "0deg" : "180deg"; 
-    rotated = ! rotated;
-    $("body")
-        .css("-webkit-transform", "rotate3d(1,1,0," + rot + ")")
-        .css("-moz-transform", "rotate3d(1,1,0," + rot + ")")
-	}
+        var rot = rotated ? "0deg" : "180deg"; 
+        rotated = ! rotated;
+        $("body")
+            .css("-webkit-transform", "rotate3d(1,1,0," + rot + ")")
+            .css("-moz-transform", "rotate3d(1,1,0," + rot + ")");
+    }
 }();
-play.help = function () { console.log("Skriv play.spin() og trykk enter")};
-play.about = function () { console.log("Sjekk ut http://blog.bjartwolf.com/?p=552") };
+play.help = function () { console.log("Skriv play.spin() og trykk enter. Eller play.newColor(). Eller play.kitten(). Eller play.blinkBackground()."); };
+play.about = function () { console.log("Sjekk ut http://blog.bjartwolf.com/?p=552"); };
 play.newColor = function () { return "rgb("+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+")" };
 play.blinkBackground = function () {
     $("div").animate(
