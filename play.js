@@ -8,7 +8,9 @@ play.spin = function () {
         rotated = ! rotated;
         $("body")
             .css("-webkit-transform", "rotate3d(1,1,0," + rot + ")")
-            .css("-moz-transform", "rotate3d(1,1,0," + rot + ")");
+            .css("-webkit-transition", "1s")
+            .css("-moz-transform", "rotate3d(1,1,0," + rot + ")")
+            .css("-moz-transition", "1s");
     }
 }();
 play.help = function () { console.log("Skriv play.spin() og trykk enter. Eller play.newColor(). Eller play.kitten(). Eller play.blinkBackground()."); };
