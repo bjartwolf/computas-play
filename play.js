@@ -25,6 +25,10 @@ play.blinkBackground = function () {
     });
 };
 play.kittens = function() {
-	var img = '<img src="/Documents/Bilder/kittens.jpg" alt="KITTENS!!!"/>';
-	$("#Slider-wrapper").html(img);
+    var img = '<img src="/Documents/Bilder/kittens.jpg" alt="KITTENS!!!"/>';
+    $("#Slider-wrapper").html(img);
+};
+play.kitten = function() {
+    var img = '<img src="http://placekitten.com/g/1150/350" alt="KITTEN!!!"/>';
+    $("#Slider-wrapper").html(img);
 };
