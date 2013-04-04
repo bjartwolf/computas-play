@@ -7,29 +7,36 @@ play.spin = function () {
         var rot = rotated ? "0deg" : "180deg"; 
         rotated = ! rotated;
         $("body")
+            .css("-ms-transform", rot)
+            .css("-o-transform", "rotate3d(1,1,0," + rot + ")")
             .css("-webkit-transform", "rotate3d(1,1,0," + rot + ")")
             .css("-webkit-transition", "1s")
             .css("-moz-transform", "rotate3d(1,1,0," + rot + ")")
             .css("-moz-transition", "1s");
     }
 }();
-play.help = function () { console.log("Skriv play.spin() og trykk enter. Eller play.newColor(). Eller play.kitten(). Eller play.blinkBackground()."); };
+play.help = function () { console.log("Skriv play.spin() og trykk enter. Eller play.kitten(). Eller play.blinkBackground()."); };
 play.about = function () { console.log("Sjekk ut http://blog.bjartwolf.com/?p=552"); };
-play.newColor = function () { return "rgb("+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+")" };
 play.blinkBackground = function () {
-    $("div").animate(
-    { 
-        backgroundColor: play.newColor() 
-    },
-    { 
-        duration: 2000,
-        complete: function () { play.blinkBackground(); }
-    });
-};
-play.kittens = function() {
-    var img = '<img src="/Documents/Bilder/kittens.jpg" alt="KITTENS!!!"/>';
-    $("#Slider-wrapper").html(img);
-};
+    var newColor = function() {
+        var f = function() {
+            return parseInt(Math.random()*256, 10);
+        } 
+        return function() {
+            return "rgb(" + f() +"," + f() + "," + f() + ")";
+        }
+    }();
+    return function() {
+        $("div").animate(
+        { 
+            backgroundColor: newColor() 
+        },
+        { 
+            duration: 2000,
+            complete: function () { play.blinkBackground(); }
+        });
+    }
+}();
 play.kitten = function() {
     var img = '<img src="http://placekitten.com/g/1150/350" alt="KITTEN!!!"/>';
     $("#Slider-wrapper").html(img);
