@@ -7,7 +7,7 @@ play.spin = function () {
         var rot = rotated ? "0deg" : "180deg"; 
         rotated = ! rotated;
         $("body")
-            .css("-ms-transform", rot)
+            .css("-ms-transform", "rotate(" + rot + ")")
             .css("-o-transform", "rotate3d(1,1,0," + rot + ")")
             .css("-webkit-transform", "rotate3d(1,1,0," + rot + ")")
             .css("-webkit-transition", "1s")
