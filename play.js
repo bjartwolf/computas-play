@@ -124,3 +124,15 @@ play.shake = function () {
     */}.toString().slice(14,-3);    
     $("head").append(getWobbleCss);    
 };
+play.barrelroll = function () {    
+    return function() {
+        var rot = "360deg";         
+        $("body")
+            .css("-ms-transform", "rotate(" + rot + ")")
+            .css("-o-transform", "rotate3d(0,0,1," + rot + ")")
+            .css("-webkit-transform", "rotate3d(0,0,1," + rot + ")")
+            .css("-webkit-transition", "3s")
+            .css("-moz-transform", "rotate3d(0,0,1," + rot + ")")
+            .css("-moz-transition", "3s");
+    }
+}();
