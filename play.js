@@ -26,6 +26,7 @@ play.spin.help = function () {
 play.help = function () { console.log("Skriv play.spin() og trykk enter. Eller play.kitten(). Eller play.blinkBackground()."); };
 play.about = function () { console.log("Sjekk ut http://blog.bjartwolf.com/?p=552"); };
 play.blinkBackground = function () {
+
     var newColor = function() {
         var f = function() {
             return parseInt(Math.random()*256, 10);
@@ -34,7 +35,8 @@ play.blinkBackground = function () {
             return "rgb(" + f() +"," + f() + "," + f() + ")";
         }
     }();
-    return function() {
+    return function() {       
+        $("#PageArea #MainMenuArea").css("background-image","url('')"); 
         $("div").animate(
         { 
             backgroundColor: newColor() 
