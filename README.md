@@ -13,7 +13,3 @@ TODO
 ----
 
 * Tutorials
-
-* Not only webkit
-
-* Kittens!
